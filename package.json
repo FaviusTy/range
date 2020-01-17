@@ -1,9 +1,7 @@
 {
   "name": "@favi_ty/range",
   "version": "1.0.0",
-  "main": "index.js",
   "author": "favi_ty <favius983@gmail.com>",
-  "license": "WTFPL",
   "devDependencies": {
     "@babel/cli": "7.8.3",
     "@babel/core": "7.8.3",
@@ -22,6 +20,9 @@
     "terser": "4.6.3",
     "typescript": "3.7.5"
   },
+  "license": "WTFPL",
+  "main": "dist/range.js",
+  "module": "dist/range.js",
   "publishConfig": {
     "access": "public"
   },
@@ -31,5 +32,6 @@
     "build:types": "tsc --emitDeclarationOnly",
     "minify": "terser dist/range.js --compress --source-map --mangle --output dist/range.js",
     "test": "jest --runInBand"
-  }
+  },
+  "types": "dist/types/range.d.ts"
 }
