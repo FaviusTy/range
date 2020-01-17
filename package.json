@@ -1,0 +1,35 @@
+{
+  "name": "range",
+  "version": "1.0.0-pre",
+  "main": "index.js",
+  "author": "favi_ty <favius983@gmail.com>",
+  "license": "WTFPL",
+  "devDependencies": {
+    "@babel/cli": "7.8.3",
+    "@babel/core": "7.8.3",
+    "@babel/preset-env": "7.8.3",
+    "@babel/preset-modules": "0.1.2",
+    "@babel/preset-typescript": "7.8.3",
+    "@types/babel__core": "7.1.3",
+    "@types/jest": "24.9.0",
+    "@types/power-assert": "1.5.3",
+    "babel-jest": "24.9.0",
+    "babel-preset-power-assert": "3.0.0",
+    "cross-env": "6.0.3",
+    "jest": "24.9.0",
+    "np": "5.2.1",
+    "power-assert": "1.6.1",
+    "terser": "4.6.3",
+    "typescript": "3.7.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rm -rf dist/ && yarn build:types && yarn build:module && yarn minify",
+    "build:module": "cross-env NODE_ENV=production babel range.ts --out-dir dist --extensions '.ts'",
+    "build:types": "tsc --emitDeclarationOnly",
+    "minify": "terser dist/range.js --compress --source-map --mangle --output dist/range.js",
+    "test": "jest --runInBand"
+  }
+}
